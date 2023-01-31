@@ -1,6 +1,6 @@
 {
   "name": "@jup-ag/phoenix-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "TypeScript SDK for Phoenix",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
