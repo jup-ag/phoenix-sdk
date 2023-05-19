@@ -8,16 +8,33 @@
 import * as splToken from "@solana/spl-token";
 import * as beet from "@metaplex-foundation/beet";
 import * as web3 from "@solana/web3.js";
+import {
+  CancelMultipleOrdersByIdParams,
+  cancelMultipleOrdersByIdParamsBeet,
+} from "../types/CancelMultipleOrdersByIdParams";
 
 /**
  * @category Instructions
  * @category CancelMultipleOrdersById
  * @category generated
  */
-export const CancelMultipleOrdersByIdStruct = new beet.BeetArgsStruct<{
-  instructionDiscriminator: number;
-}>(
-  [["instructionDiscriminator", beet.u8]],
+export type CancelMultipleOrdersByIdInstructionArgs = {
+  params: CancelMultipleOrdersByIdParams;
+};
+/**
+ * @category Instructions
+ * @category CancelMultipleOrdersById
+ * @category generated
+ */
+export const CancelMultipleOrdersByIdStruct = new beet.FixableBeetArgsStruct<
+  CancelMultipleOrdersByIdInstructionArgs & {
+    instructionDiscriminator: number;
+  }
+>(
+  [
+    ["instructionDiscriminator", beet.u8],
+    ["params", cancelMultipleOrdersByIdParamsBeet],
+  ],
   "CancelMultipleOrdersByIdInstructionArgs"
 );
 /**
@@ -53,16 +70,20 @@ export const cancelMultipleOrdersByIdInstructionDiscriminator = 10;
  * Creates a _CancelMultipleOrdersById_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
+ * @param args to provide as instruction data to the program
+ *
  * @category Instructions
  * @category CancelMultipleOrdersById
  * @category generated
  */
 export function createCancelMultipleOrdersByIdInstruction(
   accounts: CancelMultipleOrdersByIdInstructionAccounts,
-  programId = new web3.PublicKey("phnxNHfGNVjpVVuHkceK3MgwZ1bW25ijfWACKhVFbBH")
+  args: CancelMultipleOrdersByIdInstructionArgs,
+  programId = new web3.PublicKey("PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY")
 ) {
   const [data] = CancelMultipleOrdersByIdStruct.serialize({
     instructionDiscriminator: cancelMultipleOrdersByIdInstructionDiscriminator,
+    ...args,
   });
   const keys: web3.AccountMeta[] = [
     {

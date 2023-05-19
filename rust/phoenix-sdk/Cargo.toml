@@ -2,14 +2,16 @@ cargo-features = ["workspace-inheritance"]
 
 [package]
 name = "phoenix-sdk"
-version = "0.1.0"
+version = "0.4.2"
+description = "SDK for interacting with the Phoenix program"
 edition = "2021"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 anyhow = { workspace = true }
 solana-program = { workspace = true }
-phoenix-types = { workspace = true }
+phoenix-v1 = { workspace = true }
 clap = { workspace = true }
 borsh = { workspace = true }
 rand = { workspace = true }
@@ -25,5 +27,9 @@ coinbase-pro-rs = "0.8.1"
 num-traits = { workspace = true }
 rust_decimal = { workspace = true }
 rust_decimal_macros = { workspace = true }
+bytemuck = { workspace = true }
 itertools = "0.10.5"
-phoenix-sdk-core = { version = "0.1.0", path = "../phoenix-sdk-core" }
+phoenix-sdk-core = { version = "0.4.2", path = "../phoenix-sdk-core" }
+serde = { workspace = true }
+spl-associated-token-account = { workspace = true }
+phoenix-seat-manager = { workspace = true }

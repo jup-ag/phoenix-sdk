@@ -2,13 +2,15 @@ cargo-features = ["workspace-inheritance"]
 
 [package]
 name = "phoenix-sdk-core"
-version = "0.1.0"
+version = "0.4.2"
+description = "Core SDK for interacting with the Phoenix program"
 edition = "2021"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 solana-program = { workspace = true }
-phoenix-types = { workspace = true }
+phoenix-v1 = { workspace = true }
 borsh = { workspace = true }
 solana-sdk = { workspace = true }
 num-traits = { workspace = true }
@@ -17,3 +19,6 @@ rust_decimal_macros = { workspace = true }
 itertools = "0.10.5"
 rand = { workspace = true }
 anyhow = { workspace = true }
+ellipsis-client = { workspace = true }
+bytemuck = { workspace = true }
+spl-token = { workspace = true }

@@ -1,4 +1,4 @@
-use phoenix_types::enums::Side;
+use phoenix::state::enums::Side;
 use solana_program::pubkey::Pubkey;
 use solana_sdk::signature::Signature;
 
@@ -99,6 +99,13 @@ pub struct FillSummary {
 }
 
 #[derive(Clone, Copy, Debug)]
+pub struct TimeInForce {
+    pub order_sequence_number: u64,
+    pub last_valid_slot: u64,
+    pub last_valid_unix_timestamp_in_seconds: u64,
+}
+
+#[derive(Clone, Copy, Debug)]
 pub enum MarketEventDetails {
     Fill(Fill),
     Place(Place),
@@ -106,4 +113,5 @@ pub enum MarketEventDetails {
     Reduce(Reduce),
     FillSummary(FillSummary),
     Fee(u64),
+    TimeInForce(TimeInForce),
 }
